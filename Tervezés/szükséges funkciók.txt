@@ -1,0 +1,52 @@
+Felhasználók:
+	- regisztráció
+	- bejelentkezés
+	- adatok tárolása, változtatása
+		- név, email, jelszó
+		
+Quiz fajták:
+	Kérdésenként:
+		- 3db check-box(többet is lehet jelölni, minden mezőnek más pontszáma van)
+		- 2db text area(megjegyzés jelleggel)
+	
+Quiz lépcsői:
+	- Témák:
+		- Figyelemmel kapcsolatos tünetek
+			- Könnyen elterelhető a figyelmed
+			- Ugy tűnik mintha nem figyelnél
+			- Rendszerezési/szervezési nehézségek
+			- A figyelem lekötésének nehézségei
+			- Hibázol
+			- Nehézségek az utasításokkal
+			- Bonyolult feladatok kerülése
+			- Elhagysz dolgokat
+			- Feledékeny
+		- Hiperaktív tünetek
+			- Babrálás (fidgeting)
+			- Gyakran hagyod el a helyed
+			- Nyugtalannak érzed magad
+			- Kikapcsolódási nehézségek
+			- Mindig csinálni akarsz valamit
+			- Sokat beszélsz
+			- Blurt out answers
+			- Félbeszakítasz másokat
+			- Problémák a várakozással
+		- Nem hivatalos tünetek
+			- Nem tipikus érzelmi reakciók
+			- Alvászavar
+			- Szenzoros érzékenység
+			- Szociális kellemetlenség
+			- Elutasításra érzékeny diszfória
+			- Az időérzék hiánya
+			- Hiperfókusz
+		
+	- Statisztika a 3 nagy téma szerint
+	- Eredmény kiértékelése
+
+
+
+
+
+
+
+
