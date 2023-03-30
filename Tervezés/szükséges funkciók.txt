@@ -1,8 +1,5 @@
-Felhasználók:
-	- regisztráció
-	- bejelentkezés
-	- adatok tárolása, változtatása
-		- név, email, jelszó
+Felhasználókról tárol adatok:
+	- név, email, jelszó
 		
 Quiz fajták:
 	Kérdésenként:
@@ -20,7 +17,7 @@ Quiz lépcsői:
 			- Nehézségek az utasításokkal
 			- Bonyolult feladatok kerülése
 			- Elhagysz dolgokat
-			- Feledékeny
+			- Feledékeny vagy
 		- Hiperaktív tünetek
 			- Babrálás (fidgeting)
 			- Gyakran hagyod el a helyed
@@ -42,6 +39,26 @@ Quiz lépcsői:
 		
 	- Statisztika a 3 nagy téma szerint
 	- Eredmény kiértékelése
+	
+Funkciók felhasználóként:
+	- regisztráció
+	- bejelentkezés
+	- quiz elkezdése
+	- quiz újrakezdése
+	- quiz kitöltése
+	- kitöltött quiz részek közötti lépegetés
+	- quiz elmentése
+	Fejlesztés:
+		- quiz eredményének pdf-ben való letölthetősége
+		
+Admin funkciók:
+	- regisztrált felhasználók megtekintése
+	- regisztrált felhasználók törlése
+	Fejlesztés:
+		- quizek állásának megtekintése
+		- quiz kérdések szerkesztése 
+		- quiz kérdések hozzáadása
+		- quiz kérdések törlése
 
 
 
