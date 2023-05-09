@@ -30,17 +30,20 @@ class DatabaseSeeder extends Seeder
 
         Category::factory()->create([
             'name' => "Figyelemmel kapcsolatos tünetek",
-            'color' => "#99B898",
+            'color' => "#0C4B6C",
+            'cover_image_path' =>"images/adhd5.png",
         ]);
 
         Category::factory()->create([
             'name' => "Hiperaktív tünetek",
-            'color' => "#FF847C",
+            'color' => "#5F0429",
+            'cover_image_path' =>"images/adhd2.png",
         ]);
 
         Category::factory()->create([
             'name' => "Nem hivatalos tünetek",
-            'color' => "#2A363B",
+            'color' => "#503D31",
+            'cover_image_path' =>"images/adhd4.png",
         ]);
 
         $users = User::All();

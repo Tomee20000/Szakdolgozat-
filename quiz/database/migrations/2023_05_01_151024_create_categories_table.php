@@ -19,6 +19,7 @@ return new class extends Migration
             // #RRGGBBAA
             $table->string('color', 7);
             $table->timestamps();
+            $table->string('cover_image_path')->nullable();
         });
     }
 

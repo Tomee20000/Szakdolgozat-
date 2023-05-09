@@ -17,36 +17,33 @@
             <div class="row">
                 {{-- TODO: Read posts from DB --}}
 
-                @forelse ([1,2,3,4,5] as $post)
-                    <div class="col-12 col-md-6 col-lg-4 mb-3 d-flex align-self-stretch">
-                        <div class="card w-100" >
-                            <img
-                                src="{{ asset('images/adhd3.png') }}"
-                                class="card-img-top"
-                                alt="Post cover"
-                            >
-                            <div class="card-body" >
-                                {{-- TODO: Title --}}
-                                <h5 class="card-title mb-0">Post title</h5>
-
-                                {{-- TODO: Read post categories from DB --}}
-                                @foreach (['primary', 'secondary','danger', 'warning', 'info', 'dark'] as $category)
-                                    <a href="#" class="text-decoration-none">
-                                        <span class="badge" style="color: black">Category</span>
+                @forelse ($questions as $question)
+                    @if ($question->user == Auth::user())
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex align-self-stretch">
+                            <div class="card w-100" >
+                                <img
+                                    src="{{ asset($question->category->cover_image_path) }}"
+                                    class="card-img-top"
+                                    alt="Question cover"
+                                >
+                                <div class="card-body" >
+                                    <h5 class="card-title mb-0">{{$question->name}}</h5>
+                                    <h5 class="card-title" style="color:{{$question->category->color}};">{{$question->category->name}}</h5>
+                                    @if ($question->done)
+                                        <h5 class="card-title" style="color:green">Állapot: ✓</h5>
+                                    @else
+                                        <h5 class="card-title" style="color:red">Állapot: X</ h5>
+                                    @endif
+                                </div>
+                                <div class="card-footer">
+                                    {{-- TODO: Link --}}
+                                    <a href="{{route('questions.edit' ,$question)}}" class="btn btn-primary">
+                                        <span>Téma kérdéseinek kitöltése</span> <i class="fas fa-angle-right"></i>
                                     </a>
-                                @endforeach
-
-                                {{-- TODO: Short desc --}}
-                                <p class="card-text mt-1">Short description</p>
-                            </div>
-                            <div class="card-footer">
-                                {{-- TODO: Link --}}
-                                <a href="" class="btn btn-primary">
-                                    <span>Téma kérdéseinek kitöltése</span> <i class="fas fa-angle-right"></i>
-                                </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @empty
                     <div class="col-12">
                         <div class="alert alert-warning" role="alert">
@@ -69,11 +66,8 @@
                             Kategóriák
                         </div>
                         <div class="card-body">
-                            {{-- TODO: Read categories from DB --}}
-                            @foreach (['primary', 'secondary','danger', 'warning', 'info', 'dark'] as $category)
-                                <a href="#" class="text-decoration-none">
-                                    <span class="badge" style="color: black">Category</span>
-                                </a>
+                            @foreach ($categories as $category)
+                                    <span style="color:{{$category->color}};">{{$category->name}}</span>
                             @endforeach
                         </div>
                     </div>
@@ -87,10 +81,11 @@
                         <div class="card-body">
                             <div class="small">
                                 <ul class="fa-ul">
-                                    {{-- TODO: Read stats from DB --}}
-                                    <li><span class="fa-li"><i class="fas fa-user"></i></span>Users: N/A</li>
-                                    <li><span class="fa-li"><i class="fas fa-layer-group"></i></span>Categories: N/A</li>
-                                    <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Posts: N/A</li>
+                                    <li><span class="fa-li"><i class="fas fa-user"></i></span>Felhasználók: {{$users_count}}</li>
+                                    <li><span class="fa-li"><i class="fas fa-layer-group"></i></span>Kategóriák: {{$categories_count}}</li>
+                                    <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Témák: {{$questions->count() / $users_count}}</li>
+                                    <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Összes befejezett téma száma: {{$questions->where('done',true)->count()}}</li>
+                                    <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Saját befejezett témák száma: {{$questions->where('user',Auth::user())->where('done',true)->count()}}</li>
                                 </ul>
                             </div>
                         </div>
