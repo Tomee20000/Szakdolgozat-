@@ -1,3 +1,17 @@
-php
-composer
-.env
+
+php composer install 8.0-ás php-val innen:https://github.com/totadavid95/PhpComposerInstaller/releases/latest/download/PhpComposerInstaller.zip
+	működnie kell:
+	php -v
+	composer -V
+pc restart
+.env example másolás
+átnevezés .env-re
+quiz mappában cmd nyitás
+composer install
+php artisan key:generate
+npm run build 
+php artisan migrate --seed
+	yes
+php artisan serve
+és már megy is nekem(http://127.0.0.1:8000/)
+
