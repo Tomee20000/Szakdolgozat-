@@ -62,7 +62,11 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+        return view('questions.edit',[
+            'question' => $question,
+            'questions' => \App\Models\Question::all(),
+            'categories' => \App\Models\Category::all(),
+        ]);
     }
 
     /**

@@ -15,8 +15,6 @@
     <div class="row mt-3">
         <div class="col-12 col-lg-9">
             <div class="row">
-                {{-- TODO: Read posts from DB --}}
-
                 @forelse ($questions as $question)
                     @if ($question->user == Auth::user())
                         <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex align-self-stretch">
@@ -36,7 +34,6 @@
                                     @endif
                                 </div>
                                 <div class="card-footer">
-                                    {{-- TODO: Link --}}
                                     <a href="{{route('questions.edit' ,$question)}}" class="btn btn-primary">
                                         <span>Téma kérdéseinek kitöltése</span> <i class="fas fa-angle-right"></i>
                                     </a>
@@ -47,7 +44,7 @@
                 @empty
                     <div class="col-12">
                         <div class="alert alert-warning" role="alert">
-                            No posts found!
+                            Nincsen felhasználóhoz tartozó kérdés!
                         </div>
                     </div>
                 @endforelse

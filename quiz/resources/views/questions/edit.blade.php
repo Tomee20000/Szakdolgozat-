@@ -1,12 +1,14 @@
 @extends('layouts.app')
-@section('title', 'Create post')
+@section('title', $question->name)
 
 @section('content')
 <div class="container">
-    <h1>Create post</h1>
+    <body style="background-color:#547980;">
+    <h1>{{$question->name}}</h1>
     <div class="mb-4">
-        {{-- TODO: Link --}}
-        <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Back to the homepage</a>
+        <a href="{{route('questions.index')}}" class="btn btn-primary">
+            <i class="fas fa-angle-left"></i><span> Vissza a főoldalra</span>
+        </a>
     </div>
 
     {{-- TODO: action, method, enctype --}}
@@ -14,124 +16,107 @@
 
         {{-- TODO: Validation --}}
 
-        <div class="form-group row mb-3">
-            <label for="title" class="col-sm-2 col-form-label">Title*</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control " id="title" name="title" value="">
-            </div>
-        </div>
-
-        {{--
-            Handling invalid input fields:
-
-            <input type="text" class="form-control is-invalid" ...>
-            <div class="invalid-feedback">
-                Message
-            </div>
-        --}}
-
-        <div class="form-group row mb-3">
-            <label for="description" class="col-sm-2 col-form-label">Description</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control " id="description" name="description" value="">
-            </div>
-        </div>
-
-        <div class="form-group row mb-3">
-            <label for="text" class="col-sm-2 col-form-label">Text*</label>
-            <div class="col-sm-10">
-                <textarea rows="5" class="form-control" id="text" name="text"></textarea>
-            </div>
-        </div>
-
-        <div class="form-group row mb-3">
-            <label for="categories" class="col-sm-2 col-form-label py-0">Categories</label>
-            <div class="col-sm-10">
-                {{-- TODO: Read post categories from DB --}}
-                @forelse (['primary', 'secondary','danger', 'warning', 'info', 'dark'] as $category)
-                    <div class="form-check">
-                        <input
-                            type="checkbox"
-                            class="form-check-input"
-                            value="{{ $category }}"
-                            id="{{ $category }}"
-                            {{-- TODO: name, checked --}}
-                        >
-                        {{-- TODO --}}
-                        <label for="{{ $category }}" class="form-check-label">
-                            <span class="badge bg-{{ $category }}">{{ $category }}</span>
-                        </label>
-                    </div>
-                @empty
-                    <p>No categories found</p>
-                @endforelse
-            </div>
-        </div>
-
-        <div class="form-group row mb-3">
-            <label class="col-sm-2 col-form-label">Settings</label>
-            <div class="col-sm-10">
-                <div class="form-group">
-                    <div class="form-check">
-                        {{-- TODO: Checked --}}
-                        <input type="checkbox" class="form-check-input" value="1" id="remove_cover_image" name="remove_cover_image">
-                        <label for="remove_cover_image" class="form-check-label">Remove cover image</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group row mb-3" id="cover_image_section">
-            <label for="cover_image" class="col-sm-2 col-form-label">Cover image</label>
-            <div class="col-sm-10">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-12 mb-3">
-                            <input type="file" class="form-control-file" id="cover_image" name="cover_image">
-                        </div>
-                        <div id="cover_preview" class="col-12">
-                            <p>Cover preview:</p>
-                            {{-- TODO: Use attached image --}}
-                            <img id="cover_preview_image" src="{{ asset('images/default_post_cover.jpg') }}" alt="Cover preview">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="form-group row mb-3">
+                        <label for="thirdquestion" class="col-sm-2 col-form-label py-0"><b>Milyen gyakran tapasztalod ezt a tünetet??</b></label>
+                        <div class="col-sm-10">
+                            <div class="form-radio">
+                                <input type="radio" class="form-radio-input" value="1" id="1" name="firstquestion">
+                                <label for="1" class="form-radio-label"><span>★ Szinte soha</span></label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" class="form-radio-input" value="2" id="2" name="firstquestion">
+                                <label for="2" class="form-radio-label"><span>★★ Havonta</span></label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" class="form-radio-input" value="3" id="3" name="firstquestion">
+                                <label for="3" class="form-radio-label"><span>★★★ Hetente</span></label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" class="form-radio-input" value="4" id="4" name="firstquestion">
+                                <label for="4" class="form-radio-label"><span>★★★★ Naponta</span></label>
+                            </div>
                         </div>
                     </div>
+                    <div class="form-group row mb-3">
+                        <label for="secondquestion" class="col-sm-2 col-form-label py-0"><b>Itt van negatív hatása:</b></label>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" value="1" id="1">
+                                <label for="1" class="form-check-label"><span>★ Munka - Iskola</span></label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" value="1" id="2">
+                                <label for="2" class="form-check-label"><span>★ Család - Otthon</span></label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" value="1" id="3">
+                                <label for="3" class="form-check-label"><span>★ Barátok - Hobbi</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="thirdquestion" class="col-sm-2 col-form-label py-0"><b>Mit gondosz mióta van jelen ez a tünet az életedben?</b></label>
+                        <div class="col-sm-10">
+                            <div class="form-radio">
+                                <input type="radio" class="form-radio-input" value="1" id="1" name="thirdquestion">
+                                <label for="1" class="form-radio-label"><span>★ Kevesebb mint hat hónapja</span></label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" class="form-radio-input" value="2" id="2" name="thirdquestion">
+                                <label for="2" class="form-radio-label"><span>★★ Több mint hat hónapja</span></label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" class="form-radio-input" value="3" id="3" name="thirdquestion">
+                                <label for="3" class="form-radio-label"><span>★★★ Egész életemben jelen volt</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label"><b>Írj le néhány eléket a tünettel kapcsolatban:</b></label>
+                        <div class="col-sm-10">
+                            <textarea rows="5" class="form-control" id="text" name="text"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        <label for="text" class="col-sm-2 col-form-label"><b>Írd le mások észrevételeit:</b></label>
+                        <div class="col-sm-10">
+                            <textarea rows="5" class="form-control" id="text" name="text"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Kész</button>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    @foreach ($categories as $category)
+                    <details open>
+                        <summary>
+                            <span class="icon">{{$category->name}}</span>
+                        </summary>
+                        <ul>
+                        @foreach ($questions->where('category',$category) as $question)
+                            @if ($question->user == Auth::user())
+                                <div class=" d-flex align-self-stretch">
+                                    @if ($question->done)
+                                        <li style="color:green; list-style-type:'✓'">&nbsp;{{$question->name}}</li>
+                                    @else
+                                        <li style="color:red; list-style-type:'X'">&nbsp;{{$question->name}}</li>
+                                    @endif
+                                </div>
+                            @endif
+                        @endforeach
+                            </ul>
+                    </details>
+                    @endforeach
                 </div>
             </div>
-        </div>
-
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Store</button>
-        </div>
+          </div>
     </form>
 </div>
-@endsection
-
-@section('scripts')
-<script>
-    const removeCoverInput = document.querySelector('input#remove_cover_image');
-    const coverImageSection = document.querySelector('#cover_image_section');
-    const coverImageInput = document.querySelector('input#cover_image');
-    const coverPreviewContainer = document.querySelector('#cover_preview');
-    const coverPreviewImage = document.querySelector('img#cover_preview_image');
-    // Render Blade to JS code:
-    // TODO: Use attached image
-    const defaultCover = `{{ asset('images/default_post_cover.jpg') }}`;
-
-    removeCoverInput.onchange = event => {
-        if (removeCoverInput.checked) {
-            coverImageSection.classList.add('d-none');
-        } else {
-            coverImageSection.classList.remove('d-none');
-        }
-    }
-
-    coverImageInput.onchange = event => {
-        const [file] = coverImageInput.files;
-        if (file) {
-            coverPreviewImage.src = URL.createObjectURL(file);
-        } else {
-            coverPreviewImage.src = defaultCover;
-        }
-    }
-</script>
 @endsection
