@@ -106,7 +106,7 @@
                                     @if ($question->done)
                                         <li style="color:green; list-style-type:'✓'">&nbsp;{{$question->name}}</li>
                                     @else
-                                        <li style="color:red; list-style-type:'X'">&nbsp;{{$question->name}}</li>
+                                        <li style="color:#dc3545; list-style-type:'X'">&nbsp;{{$question->name}}</li>
                                     @endif
                                 </div>
                             @endif
