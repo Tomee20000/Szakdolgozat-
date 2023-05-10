@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class QuestionController extends Controller
 {
@@ -62,6 +63,10 @@ class QuestionController extends Controller
      */
     public function edit(Question $question)
     {
+
+
+        Session::flash('question_answered');
+
         return view('questions.edit',[
             'question' => $question,
             'questions' => \App\Models\Question::all(),

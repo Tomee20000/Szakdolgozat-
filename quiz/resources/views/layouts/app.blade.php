@@ -21,17 +21,22 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-secondary shadow-sm" >
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <!--TO DO-->
-                    <h1 style="font-family:verdana; font-size:30px;color:#9DE0AD ;">Kezdőlap</h1>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <h1 style="font-family:verdana; font-size:30px;color:#9DE0AD ;">Kezdőlap</h1>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <a class="navbar-brand" href="{{ url('/questions') }}">
+                            <h1 style="font-family:verdana; font-size:30px;color:#9DE0AD ;">Kérdések</h1>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
                     </ul>
 
@@ -60,7 +65,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Kijelentkezés') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
