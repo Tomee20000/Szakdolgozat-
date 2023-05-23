@@ -22,7 +22,7 @@ Route::get('/home', function () {
     return view('home.index');
 });
 
-Route::resource('questions' ,  QuestionController::class);
+Route::resource('questions' ,  QuestionController::class)->middleware('auth');
 
 Route::get('/questions/x/edit', function () {
     return view('questions.edit');

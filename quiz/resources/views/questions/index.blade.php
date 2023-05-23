@@ -10,10 +10,8 @@
         </div>
     </div>
 
-    {{-- TODO: Session flashes --}}
-
-    <div class="row mt-3">
-        <div class="col-12 col-lg-9">
+    <div class="row mt-4">
+        <div class="col-12 col-lg-8">
             <div class="row">
                 @forelse ($questions as $question)
                     @if ($question->user == Auth::user())
@@ -49,11 +47,6 @@
                     </div>
                 @endforelse
             </div>
-
-            <div class="d-flex justify-content-center">
-                {{-- TODO: Pagination --}}
-            </div>
-
         </div>
         <div class="col-12 col-lg-3">
             <div class="row">
@@ -88,8 +81,42 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
+                @foreach ($categories as $category)
+                    <div class="col-12 mb-3">
+                        <div class="card bg-secondary">
+                            <details open>
+                                <summary class="card-header">
+                                    <b><span class="icon">{{$category->name}}</span></b>
+                                </summary>
+                                <div class="small">
+                                    <ul class="card-body">
+                                        @foreach ($questions->where('category',$category) as $question)
+                                            @if ($question->user == Auth::user())
+                                                <div class=" d-flex align-self-stretch">
+                                                    @if ($question->done)
+                                                        <b><li style="color:green; list-style-type:'✓'">
+                                                            <a style="color:green;" href="{{route('questions.edit' ,$question)}}">
+                                                                <span>&nbsp;{{$question->name}}</span>
+                                                            </a>
+                                                        </li></b>
+                                                    @else
+                                                        <b><li style="color:#dc3545; list-style-type:'X'">
+                                                            <a style="color:#dc3545;" href="{{route('questions.edit' ,$question)}}">
+                                                                <span>&nbsp;{{$question->name}}</span>
+                                                            </a>
+                                                        </li></b>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>

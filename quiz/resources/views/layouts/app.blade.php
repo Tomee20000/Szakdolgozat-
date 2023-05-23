@@ -30,14 +30,14 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
-                        <a class="navbar-brand" href="{{ url('/questions') }}">
-                            <h1 style="font-family:verdana; font-size:30px;color:#9DE0AD ;">Kérdések</h1>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
+                        @if (Auth::check())
+                            <a class="navbar-brand" href="{{ url('/questions') }}">
+                                <h1 style="font-family:verdana; font-size:30px;color:#9DE0AD ;">Kérdések</h1>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
