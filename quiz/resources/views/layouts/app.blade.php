@@ -38,6 +38,14 @@
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         @endif
+                        @if(Gate::allows('view-statistics'))
+                            <a class="navbar-brand" href="{{ url('/statistics') }}">
+                                <h1 style="font-family:verdana; font-size:30px;color:#9DE0AD ;">Statisztika</h1>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

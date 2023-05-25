@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class QuestionController extends Controller
@@ -102,24 +104,26 @@ class QuestionController extends Controller
                 $validated['secondquestion1'] = 1;
             }
         }else{
-            $question->question2_1=0;
+            $validated['secondquestion1']=0;
         }
         if(isset($validated['secondquestion2'])){
             if ($validated['secondquestion2'] == "on"){
                 $validated['secondquestion2'] = 1;
             }
         }else{
-            $question->question2_2=0;
+            $validated['secondquestion2']=0;
         }
         if(isset($validated['secondquestion3'])){
             if ($validated['secondquestion3'] == "on"){
                 $validated['secondquestion3'] = 1;
             }
         }else{
-            $question->question2_3=0;
+            $validated['secondquestion3']=0;
         }
 
-
+        $question->question2_1 = $validated['secondquestion1'];
+        $question->question2_2 = $validated['secondquestion2'];
+        $question->question2_3 = $validated['secondquestion3'];
         $question->question1_points = $validated['firstquestion'];
         $question->question3_points = $validated['thirdquestion'];
         $question->question4_text = $validated['memories'];
@@ -129,15 +133,40 @@ class QuestionController extends Controller
         $question->done = true;
         $question->save();
 
+
+        $c1 = 0;
+        $c2 = 0;
+        $c3 = 0;
+        $done = true;
+        $questions = Question::all();
+
+        foreach ($questions as $question) {
+            echo "ads";
+            if ($question->user == Auth::user()){
+                if ($question->category->id === 1){
+                    $c1 += $question->sum;
+                }
+                else if ($question->category->id === 2){
+                    $c2 += $question->sum;
+                }
+                else if ($question->category->id === 3){
+                    $c3 += $question->sum;
+                }
+                $done = $done && $question->done;
+            }
+        }
+
+        Auth::user()->category1_points = $c1;
+        Auth::user()->category2_points = $c2;
+        Auth::user()->category3_points = $c3;
+        Auth::user()->done = $done;
+
+        Auth::user()->save();
+
         Session::flash('question_answered');
 
 
-        return view('questions.index',[
-            'users_count' => \App\Models\User::count(),
-            'categories_count' => \App\Models\Category::count(),
-            'questions' => \App\Models\Question::all(),
-            'categories' => \App\Models\Category::all(),
-        ]);
+        return Redirect::route('questions.index');
     }
 
     /**

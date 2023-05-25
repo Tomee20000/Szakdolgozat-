@@ -27,7 +27,7 @@ class QuestionSeeder extends Seeder
             'question1' => "Milyen gyakran tapasztalod ezt a tünetet?",
             'question1_points' => "1",
             'question2' => "Van negatív hatása:",
-            'question2_points' => "1",
+            'question2_points' => "0",
             'question3' => "Mit gondolsz mióta van ez a tünet jelen az életedben?",
             'question3_points' => "1",
             'question4' => "Írj ide néhány emléket a tünettel kapcsolatban!",

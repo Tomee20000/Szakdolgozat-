@@ -21,7 +21,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-9 card bg-secondary">
                         <div class="form-group row mb-3">
                             <label for="firstquestion" class="col-sm-2 col-form-label py-0"><b>Milyen gyakran tapasztalod ezt a tünetet??</b></label>
                             <div class="col-sm-10 @error('firstquestion') is-invalid @enderror">
@@ -140,15 +140,15 @@
                                                     @if ($question->user == Auth::user())
                                                         <div class=" d-flex align-self-stretch">
                                                             @if ($question->done)
-                                                                <b><li style="color:green; list-style-type:'✓'">
+                                                                <b><li style="color:green; list-style-type:'✓&nbsp;'">
                                                                     <a style="color:green;" href="{{route('questions.edit' ,$question)}}">
-                                                                        <span>&nbsp;{{$question->name}}</span>
+                                                                        <span>{{$question->name}}</span>
                                                                     </a>
                                                                 </li></b>
                                                             @else
-                                                                <b><li style="color:#dc3545; list-style-type:'X'">
+                                                                <b><li style="color:#dc3545; list-style-type:'X&nbsp;'">
                                                                     <a style="color:#dc3545;" href="{{route('questions.edit' ,$question)}}">
-                                                                        <span>&nbsp;{{$question->name}}</span>
+                                                                        <span>{{$question->name}}</span>
                                                                     </a>
                                                                 </li></b>
                                                             @endif

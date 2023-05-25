@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::get('/home', function () {
 });
 
 Route::resource('questions' ,  QuestionController::class)->middleware('auth');
+Route::resource('statistics' ,  StatisticsController::class)->middleware('auth');
 
 Route::get('/questions/x/edit', function () {
     return view('questions.edit');

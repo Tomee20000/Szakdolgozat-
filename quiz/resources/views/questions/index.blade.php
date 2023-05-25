@@ -74,7 +74,7 @@
                                     <li><span class="fa-li"><i class="fas fa-user"></i></span>Felhasználók: {{$users_count}}</li>
                                     <li><span class="fa-li"><i class="fas fa-layer-group"></i></span>Kategóriák: {{$categories_count}}</li>
                                     <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Témák: {{$questions->count() / $users_count}}</li>
-                                    <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Összes befejezett téma száma: {{$questions->where('done',true)->count()}}</li>
+                                    <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Összes befejezett témák száma: {{$questions->where('done',true)->count()}}</li>
                                     <li><span class="fa-li"><i class="fas fa-file-alt"></i></span>Saját befejezett témák száma: {{$questions->where('user',Auth::user())->where('done',true)->count()}}</li>
                                 </ul>
                             </div>
@@ -95,15 +95,15 @@
                                             @if ($question->user == Auth::user())
                                                 <div class=" d-flex align-self-stretch">
                                                     @if ($question->done)
-                                                        <b><li style="color:green; list-style-type:'✓'">
+                                                        <b><li style="color:green; list-style-type:'✓&nbsp;'">
                                                             <a style="color:green;" href="{{route('questions.edit' ,$question)}}">
-                                                                <span>&nbsp;{{$question->name}}</span>
+                                                                <span>{{$question->name}}</span>
                                                             </a>
                                                         </li></b>
                                                     @else
-                                                        <b><li style="color:#dc3545; list-style-type:'X'">
+                                                        <b><li style="color:#dc3545; list-style-type:'X&nbsp;'">
                                                             <a style="color:#dc3545;" href="{{route('questions.edit' ,$question)}}">
-                                                                <span>&nbsp;{{$question->name}}</span>
+                                                                <span>{{$question->name}}</span>
                                                             </a>
                                                         </li></b>
                                                     @endif
