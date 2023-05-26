@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         Category::factory()->create([
             'name' => "Nem hivatalos tünetek",
-            'color' => "#503D31",
+            'color' => "#B45904",
             'cover_image_path' =>"images/adhd4.png",
         ]);
 
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             $this->question_create($user->id,1,"Feledékeny vagy");
 
             $this->question_create($user->id,2,"Babrálás (fidgeting)");
-            $this->question_create($user->id,2,"Gyakran hagyod el a helyed");
+            $this->question_create($user->id,2,"Nagy a mozgásigényed");
             $this->question_create($user->id,2,"Nyugtalannak érzed magad");
             $this->question_create($user->id,2,"Kikapcsolódási nehézségek");
             $this->question_create($user->id,2,"Mindig csinálni akarsz valamit");
@@ -67,11 +67,11 @@ class DatabaseSeeder extends Seeder
             $this->question_create($user->id,2,"Félbeszakítasz másokat");
             $this->question_create($user->id,2,"Problémák a várakozással");
 
-            $this->question_create($user->id,3,"Nem tipikus érzelmi reakciók");
+            $this->question_create($user->id,3,"Érzelmi szabályozási zavarok");
             $this->question_create($user->id,3,"Alvászavar");
             $this->question_create($user->id,3,"Szenzoros érzékenység");
             $this->question_create($user->id,3,"Szociális kellemetlenség");
-            $this->question_create($user->id,3,"Elutasításra érzékeny diszfória");
+            $this->question_create($user->id,3,"Elutasításra érzékeny diszfória (RSD)");
             $this->question_create($user->id,3,"Az időérzék hiánya");
             $this->question_create($user->id,3,"Hiperfókusz");
         }

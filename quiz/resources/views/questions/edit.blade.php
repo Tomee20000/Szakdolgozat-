@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-sm-9 card bg-secondary">
                         <div class="form-group row mb-3">
-                            <label for="firstquestion" class="col-sm-2 col-form-label py-0"><b>Milyen gyakran tapasztalod ezt a tünetet??</b></label>
+                            <label for="firstquestion" class="col-sm-2 col-form-label py-0"><b>Milyen gyakran tapasztalod ezt a tünetet?</b></label>
                             <div class="col-sm-10 @error('firstquestion') is-invalid @enderror">
                                 <div class="form-radio">
                                     <input type="radio" class="form-radio-input" value="1" id="1" name="firstquestion"
@@ -53,7 +53,7 @@
                             @enderror
                         </div>
                         <div class="form-group row mb-3">
-                            <label for="secondquestion" class="col-sm-2 col-form-label py-0"><b>Itt van negatív hatása:</b></label>
+                            <label for="secondquestion" class="col-sm-2 col-form-label py-0"><b>Hol van negatív hatása:</b></label>
                             <div class="col-sm-10">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" value="1" id="secondquestion1" name="secondquestion1"
@@ -146,8 +146,8 @@
                                                                     </a>
                                                                 </li></b>
                                                             @else
-                                                                <b><li style="color:#dc3545; list-style-type:'X&nbsp;'">
-                                                                    <a style="color:#dc3545;" href="{{route('questions.edit' ,$question)}}">
+                                                                <b><li style="color:#885053; list-style-type:'X&nbsp;'">
+                                                                    <a style="color:#885053;" href="{{route('questions.edit' ,$question)}}">
                                                                         <span>{{$question->name}}</span>
                                                                     </a>
                                                                 </li></b>

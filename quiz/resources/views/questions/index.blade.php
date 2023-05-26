@@ -11,7 +11,7 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-lg-9">
             <div class="row">
                 @forelse ($questions as $question)
                     @if ($question->user == Auth::user())
@@ -28,7 +28,7 @@
                                     @if ($question->done)
                                         <h5 class="card-title" style="color:green">Állapot: ✓</h5>
                                     @else
-                                        <h5 class="card-title" style="color:red">Állapot: X</ h5>
+                                        <h5 class="card-title" style="color:#885053">Állapot: X</ h5>
                                     @endif
                                 </div>
                                 <div class="card-footer">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="card-body">
                             @foreach ($categories as $category)
-                                    <span style="color:{{$category->color}};">{{$category->name}}</span>
+                                    <b><span style="color:{{$category->color}};">{{$category->name}}</span></b><br>
                             @endforeach
                         </div>
                     </div>
@@ -101,8 +101,8 @@
                                                             </a>
                                                         </li></b>
                                                     @else
-                                                        <b><li style="color:#dc3545; list-style-type:'X&nbsp;'">
-                                                            <a style="color:#dc3545;" href="{{route('questions.edit' ,$question)}}">
+                                                        <b><li style="color:#885053; list-style-type:'X&nbsp;'">
+                                                            <a style="color:#885053;" href="{{route('questions.edit' ,$question)}}">
                                                                 <span>{{$question->name}}</span>
                                                             </a>
                                                         </li></b>
