@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Kezdőlap')
+@section('title', 'Statisztika')
 
 @section('content')
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -14,14 +14,35 @@
             <div class="row justify-content-between">
                 <div>
                     <h1 style="font-family:verdana; font-size:30px;color:#E5FCC2 ;">Ezt az eszközt azért hoztam létre, hogy segítsek neked vizualizálni mely ADHD tüneteket tapasztalod a leginkább.
-                        <u>Természetesen ez nem egy hivatalos diagnózis!</u></h1>
+                        <u>Természetesen ez nem egy hivatalos diagnózis!</u>
+                    </h1>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-12 col-lg-8">
                     <div id="container" style="width: 80%; height: 400px; margin: 0 auto;"></div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card bg-secondary">
+                        <div class="card-header">
+                            Maximálisan elérhető pontszámok:
+                        </div>
+                        <div class="card-body">
+                            @foreach ($categories as $category)
+                            <b><span style="color:{{$category->color}};">{{$category->name}}:
+                            @if ($category->id != 3)
+                                90
+                            @else
+                                70
+                            @endif
+                            pont</span></b><br>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

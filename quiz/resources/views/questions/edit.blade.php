@@ -8,7 +8,7 @@
     @endcan
     <div class="mb-4">
         <a href="{{route('questions.index')}}" class="btn btn-primary">
-            <i class="fas fa-angle-left"></i><span> Vissza a főoldalra</span>
+            <i class="fas fa-angle-left"></i><span> Vissza a kérdésekhez</span>
         </a>
     </div>
 
