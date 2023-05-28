@@ -55,11 +55,11 @@
                         <div class="card-header">
                             Kategóriák
                         </div>
-                        <div class="card-body">
+                        <div class="card-body"><b>
                             @foreach ($categories as $category)
-                                    <b><span style="color:{{$category->color}};">{{$category->name}}</span></b><br>
+                                    <span style="color:{{$category->color}};">{{$category->name}}</span><br>
                             @endforeach
-                        </div>
+                        </b></div>
                     </div>
                 </div>
 
