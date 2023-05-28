@@ -66,7 +66,7 @@
                 <div class="col-12 mb-3">
                     <div class="card bg-secondary">
                         <div class="card-header">
-                            Statisztika
+                            Általános statisztika
                         </div>
                         <div class="card-body">
                             <div class="small">
