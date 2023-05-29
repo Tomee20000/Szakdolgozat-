@@ -20,7 +20,7 @@ class QuestionController extends Controller
         return view('questions.index',[
             'users_count' => \App\Models\User::count(),
             'categories_count' => \App\Models\Category::count(),
-            'questions' => \App\Models\Question::all(),
+            'questions' => Question::all(),
             'categories' => \App\Models\Category::all(),
         ]);
     }
