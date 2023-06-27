@@ -47,13 +47,14 @@
             </div>
         </div>
         <script language="JavaScript">
+            console.log(typeof(c));
             function drawChart() {
                 /* Define the chart to be drawn.*/
                 var data = google.visualization.arrayToDataTable([
                     ['Page Vist', 'Szerzett pontok'],
-                    ['Figyelemmel kapcsolatos tünetek', @json(Auth::user()->category1_points)],
-                    ['Hiperaktív tünetek', @json(Auth::user()->category2_points)],
-                    ['Nem hivatalos tünetek', @json(Auth::user()->category3_points)]
+                    ['Figyelemmel kapcsolatos tünetek', parseInt(@json(Auth::user()->category1_points))],
+                    ['Hiperaktív tünetek', parseInt(@json(Auth::user()->category2_points))],
+                    ['Nem hivatalos tünetek', parseInt(@json(Auth::user()->category3_points))]
                 ]);
                 var options = {
                     title: 'Szerzett pontok kategóriánként',
