@@ -54,7 +54,7 @@ class QuestionPolicy
      */
     public function update(User $user, Question $question)
     {
-        return Auth::user()->id === $question->user_id;
+        return Auth::user()->id == $question->user_id;
     }
 
     /**
